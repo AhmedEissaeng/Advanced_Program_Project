@@ -1,5 +1,5 @@
 # Advanced_Program_Project
-## You will find the batch file in the directory above above the running case
+## You will find the batch file in the directory above the running case
 ## You will find one mdl file in the directory above for the running case 
 ## running a batch file on your computer will generate .class files for .java file
 ## We used Java version "1.8.0_291"
