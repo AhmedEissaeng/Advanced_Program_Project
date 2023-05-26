@@ -139,7 +139,7 @@ public class main extends Application
             c.setRadius(2.5);
             c.setFill(Color.BLACK);
             p.getChildren().add(c);
-        }
+            }
         int f5=0;
         for(int z5=0;z5<x3.size();++z5)
         {
