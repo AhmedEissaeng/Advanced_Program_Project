@@ -260,3 +260,175 @@ public class main extends Application
         ArrayList<String> in_b=new ArrayList<>();
         ArrayList<String> addi=new ArrayList<>();
         ArrayList<Integer> addi_1=new ArrayList<>();
+        while(j.hasNextLine())
+             {
+                String q=j.nextLine();
+                int ports=0;
+                if(q.contains("Block BlockType"))
+                {
+                    f++;
+                    String b_Name=q.substring(q.indexOf(" Name=\"")+7,q.indexOf("\" SID"));
+                    String b_ID=q.substring(q.indexOf(" SID=\"")+6,q.indexOf("\">"));
+                    nam.add(b_Name);
+                    id.add(b_ID);
+                    q=j.nextLine();
+                    if(q.contains("<P Name=\"Ports"))
+                {
+                    String por;
+                    if(q.length()>=28)
+                    {
+                        por=q.substring(q.indexOf(">[")+2,q.indexOf("]<")-3);
+                        ports=Integer.parseInt(por);
+                    }
+                    else
+                    {
+                        por=q.substring(q.indexOf(">[")+2,q.indexOf("]<"));
+                        ports=Integer.parseInt(por);
+                    }
+                    q=j.nextLine();
+                    pn.add(ports);
+                }
+                else 
+                {
+                    ports=1;
+                    pn.add(ports);
+                }
+                }
+                if(q.contains("<P Name=\"Position"))
+                {
+                    String b_left=q.substring(q.indexOf(">[")+2,q.indexOf("]<")-10);
+                    String[] com=b_left.split(",");
+                    double left=Double.parseDouble(com[0]);
+                    String b_top=q.substring(q.indexOf(">[")+7,q.indexOf("]<")-6);
+                    String[] com1=b_top.split(",");
+                    double top=Double.parseDouble(com1[0]);
+                    lef.add(left);
+                    to.add(top);
+                }
+             }
+             for(int r=0;r<lef.size();++r)
+             {
+                blocks[r] = new block();
+                blocks[r].setName(nam.get(r));
+                blocks[r].setId(id.get(r));
+                blocks[r].setL_p(lef.get(r));
+                blocks[r].setT_p(to.get(r));
+                blocks[r].setPorno(pn.get(r));
+                mir.add("null");
+             }
+             int f1=0;
+             while(u1.hasNextLine())
+             {
+                String w=u1.nextLine();
+                if(w.contains("Block BlockType"))
+                { 
+                    while(!w.contains("</Block>"))
+                    {
+                        w=u1.nextLine();
+                        if(w.contains("<P Name=\"BlockMirror"))
+                        {
+                            String mirror=w.substring(w.indexOf("<P Name=\"BlockMirror")+22,w.indexOf("</P>"));
+                            mir.set(f1,mirror); 
+                        }
+                        
+                    }
+                    f1++;
+                }
+                if(w.contains("<Line>"))
+                {   
+                    while(!w.contains("</Line>"))
+                    {
+                        w=u1.nextLine();
+                        w=u1.nextLine();
+                       String d1=w.substring(w.indexOf("\"Src\">")+6,w.indexOf("#out:"));
+                       src.add(d1);
+                       w=u1.nextLine();
+                        if(w.contains("Name=\"Points\">"))
+                        {
+                            w=u1.nextLine();
+                        }
+                        if(w.contains("<P Name=\"Dst\""))
+                        {
+                            String d3=w.substring(w.indexOf("\"Dst\">")+6,w.indexOf("#in:"));
+                            dst.add(d3);
+                            String d4=w.substring(w.indexOf("#in:")+4,w.indexOf("</P"));
+                            in.add(d4);
+                            w=u1.nextLine();
+                        }
+                        String d6="null";
+                        if(w.contains("<Branch>"))
+                        {
+                            int d4=0;
+                            while(w.contains("<Branch>"))
+                            {
+                                ++d4;
+                                while(!w.contains("<P Name=\"Dst\">"))
+                            {
+                                w=u1.nextLine();
+                            }
+                            String d2=w.substring(w.indexOf("\"Dst\">")+6,w.indexOf("#in:"));
+                            dst_b.add(d2);
+                            String d5=w.substring(w.indexOf("#in:")+4,w.indexOf("</P"));
+                            in_b.add(d5);
+                            w=u1.nextLine();
+                            w=u1.nextLine(); 
+                        }
+                        addi_1.add(d4);
+                       }
+                       else 
+                       {
+                        d6="0";
+                       }
+                       addi.add(d6);
+                    }
+                }
+             }        
+           for(int q3=0;q3<src.size();++q3)
+             {
+                for(int q4=0;q4<f;++q4)
+                {
+                    if(src.get(q3).equals(blocks[q4].getId()))
+                    {
+                        double e4;
+                        double e5;
+                        double d8;
+                        double d9;
+                        if(addi.get(q3).equals("null"))
+                        {
+                            if(mir.get(q4).equals("on"))
+                        {
+                            e4=blocks[q4].getL_p();
+                            e5=blocks[q4].getT_p()+25;
+                            d8=blocks[q4].getL_p()-20;
+                            d9=blocks[q4].getT_p()+25;
+                        }
+                            else 
+                        {
+                            e4=blocks[q4].getL_p()+50;
+                            e5=blocks[q4].getT_p()+25;
+                            d8=blocks[q4].getL_p()+80;
+                            d9=blocks[q4].getT_p()+25;
+                        }
+                            x5.add(e4);
+                            y5.add(e5);
+                            x3.add(d8);
+                            y3.add(d9);
+                        }
+                        else 
+                        {
+                            if(mir.get(q4).equals("on"))
+                        {
+                            e4=blocks[q4].getL_p();
+                            e5=blocks[q4].getT_p()+25;
+                        }
+                        else 
+                        {
+                            e4=blocks[q4].getL_p()+50;
+                          e5=blocks[q4].getT_p()+25;
+                        }
+                        x1.add(e4);
+                        y1.add(e5);
+                        }
+                    }
+                }
+             }
