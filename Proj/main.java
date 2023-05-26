@@ -559,3 +559,146 @@ public class main extends Application
                            e7=blocks[r7].getL_p()+58;
                         }
                       }
+                      else 
+                        {
+                        if(in_b.get(r6).equals("1"))
+                        {
+                            e5=blocks[r7].getL_p();
+                           e6=blocks[r7].get_pos()+blocks[r7].getT_p();  
+                           e7=blocks[r7].getL_p()-8;
+                        }
+                        if(in_b.get(r6).equals("2"))
+                        {
+                            e5=blocks[r7].getL_p();
+                           e6=2*blocks[r7].get_pos()+blocks[r7].getT_p();
+                           e7=blocks[r7].getL_p()-8;
+                        }
+                        if(in_b.get(r6).equals("3"))
+                        {
+                            e5=blocks[r7].getL_p();
+                           e6=3*blocks[r7].get_pos()+blocks[r7].getT_p();
+                           e7=blocks[r7].getL_p()-8;
+                        }
+                        if(in_b.get(r6).equals("4"))
+                        {
+                            e5=blocks[r7].getL_p();
+                           e6=4*blocks[r7].get_pos()+blocks[r7].getT_p();
+                           e7=blocks[r7].getL_p()-8;
+                        }
+                        if(in_b.get(r6).equals("5"))
+                        {
+                            e5=blocks[r7].getL_p();
+                           e6=5*blocks[r7].get_pos()+blocks[r7].getT_p();
+                           e7=blocks[r7].getL_p()-8;
+                        }
+                        if(in_b.get(r6).equals("6"))
+                        {
+                            e5=blocks[r7].getL_p();
+                           e6=6*blocks[r7].get_pos()+blocks[r7].getT_p();
+                           e7=blocks[r7].getL_p()-8;
+                        }
+                      }
+                        x4.add(e5);
+                        y4.add(e6);
+                        x6.add(e7);
+                   }  
+               }
+          } 
+          for(int i5=1;i5<addi_1.size();++i5)
+            {
+                addi_1.set(i5,addi_1.get(i5-1)+addi_1.get(i5)+1);
+            }
+            Double i6=0.0;
+            for(int i7=0;i7<addi_1.size();++i7)
+            {
+                x4.add(addi_1.get(i7),i6);
+                y4.add(addi_1.get(i7),i6);
+                x6.add(addi_1.get(i7),i6);
+            }
+          
+          Application.launch(args); 
+      }
+            catch(FileNotFoundException e)
+        {
+            e=new FileNotFoundException("File Not Found!");
+        }
+        catch(IOException e)
+        {
+            e=new IOException("IO Exception");
+        }
+        catch (NotVaildAutosarFileException e)
+        {
+            e=new NotVaildAutosarFileException("Invalid file extention!");
+        }
+        catch (NullPointerException e)
+        {
+            e=new NullPointerException("NullPointer Exception");
+        }
+    } 
+}
+class EmptyAutosarFileException extends RuntimeException
+{
+    public EmptyAutosarFileException(String m)
+    {
+        System.out.println(m);
+    }
+}
+class NotVaildAutosarFileException extends Exception
+{
+    public NotVaildAutosarFileException(String m)
+    {
+        System.out.println(m);
+    }
+}
+class block
+{
+    private String id;
+    private String name;
+    private double topPosition;
+    private double leftPosition;
+    private int noOfPorts;
+    public void setId(String i)
+    {
+        this.id=i;
+    }
+    public void setName(String n)
+    {
+        this.name=n;
+    }
+    public void setL_p(double l)
+    {
+        this.leftPosition=l;
+    }
+    public void setT_p(double t)
+    {
+        this.topPosition=t;
+    }
+    public void setPorno(int num)
+    {
+        this.noOfPorts=num;
+    }
+    public String getId()
+    {
+        return this.id;
+    }
+    public String getName()
+    {
+        return this.name;
+    }
+    public double getL_p()
+    {
+        return this.leftPosition;
+    }
+    public double getT_p()
+    {
+        return this.topPosition;
+    }
+    public int getPorno()
+    {
+        return this.noOfPorts;
+    }
+    public double get_pos()
+    {
+        return 50.0/(this.getPorno()+1.0);
+    }
+}
