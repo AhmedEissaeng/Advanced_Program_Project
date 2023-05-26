@@ -432,3 +432,130 @@ public class main extends Application
                     }
                 }
              }
+             for(int r2=0;r2<dst.size();++r2)
+             {
+                for(int r3=0;r3<f;++r3)
+                {
+                    if(dst.get(r2).equals(blocks[r3].getId()))
+                    {
+                        double e5=0;
+                        double e6=0;
+                        if(mir.get(r3).equals("on"))
+                        {
+                            if(in.get(r2).equals("1"))
+                        {
+                            e5=blocks[r3].getL_p()+50;
+                           e6=blocks[r3].get_pos()+blocks[r3].getT_p();
+                        }
+                        if(in.get(r2).equals("2"))
+                        {
+                            e5=blocks[r3].getL_p()+50;
+                           e6=2*blocks[r3].get_pos()+blocks[r3].getT_p();
+                        }
+                        if(in.get(r2).equals("3"))
+                        {
+                            e5=blocks[r3].getL_p()+50;
+                           e6=3*blocks[r3].get_pos()+blocks[r3].getT_p();
+                        }
+                        if(in.get(r2).equals("4"))
+                        {
+                            e5=blocks[r3].getL_p()+50;
+                           e6=4*blocks[r3].get_pos()+blocks[r3].getT_p();
+                        }
+                        if(in.get(r2).equals("5"))
+                        {
+                            e5=blocks[r3].getL_p()+50;
+                           e6=5*blocks[r3].get_pos()+blocks[r3].getT_p();
+                        }
+                        if(in.get(r2).equals("6"))
+                        {
+                            e5=blocks[r3].getL_p()+50;
+                           e6=6*blocks[r3].get_pos()+blocks[r3].getT_p();
+                        }
+                        }
+                        else
+                        {
+                        if(in.get(r2).equals("1"))
+                        {
+                            e5=blocks[r3].getL_p();
+                           e6=blocks[r3].get_pos()+blocks[r3].getT_p();
+                        }
+                        if(in.get(r2).equals("2"))
+                        {
+                            e5=blocks[r3].getL_p();
+                           e6=2*blocks[r3].get_pos()+blocks[r3].getT_p();
+                        }
+                        if(in.get(r2).equals("3"))
+                        {
+                            e5=blocks[r3].getL_p();
+                           e6=3*blocks[r3].get_pos()+blocks[r3].getT_p();
+                        }
+                        if(in.get(r2).equals("4"))
+                        {
+                            e5=blocks[r3].getL_p();
+                           e6=4*blocks[r3].get_pos()+blocks[r3].getT_p();
+                        }
+                        if(in.get(r2).equals("5"))
+                        {
+                            e5=blocks[r3].getL_p();
+                           e6=5*blocks[r3].get_pos()+blocks[r3].getT_p();
+                        }
+                        if(in.get(r2).equals("6"))
+                        {
+                            e5=blocks[r3].getL_p();
+                           e6=6*blocks[r3].get_pos()+blocks[r3].getT_p();
+                        }
+                    }
+                        x2.add(e5);
+                        y2.add(e6);
+                   }  
+               }
+             }
+             for(int r6=0;r6<dst_b.size();++r6)
+             {
+                for(int r7=0;r7<f;++r7)
+                {
+                    if(dst_b.get(r6).equals(blocks[r7].getId()))
+                    {
+                        double e5=0;
+                        double e6=0;
+                        double e7=0;
+                        if(mir.get(r7).equals("on"))
+                        {
+                        if(in_b.get(r6).equals("1"))
+                        {
+                            e5=blocks[r7].getL_p()+50;
+                           e6=blocks[r7].get_pos()+blocks[r7].getT_p();
+                           e7=blocks[r7].getL_p()+58;
+                        }
+                        if(in_b.get(r6).equals("2"))
+                        {
+                            e5=blocks[r7].getL_p()+50;
+                           e6=2*blocks[r7].get_pos()+blocks[r7].getT_p();
+                           e7=blocks[r7].getL_p()+58;
+                        }
+                        if(in_b.get(r6).equals("3"))
+                        {
+                            e5=blocks[r7].getL_p()+50;
+                           e6=3*blocks[r7].get_pos()+blocks[r7].getT_p();
+                           e7=blocks[r7].getL_p()+58;
+                        }
+                        if(in_b.get(r6).equals("4"))
+                        {
+                            e5=blocks[r7].getL_p()+50;
+                           e6=4*blocks[r7].get_pos()+blocks[r7].getT_p();
+                           e7=blocks[r7].getL_p()+58;
+                        }
+                        if(in_b.get(r6).equals("5"))
+                        {
+                            e5=blocks[r7].getL_p()+50;
+                           e6=5*blocks[r7].get_pos()+blocks[r7].getT_p();
+                           e7=blocks[r7].getL_p()+58;
+                        }
+                        if(in_b.get(r6).equals("6"))
+                        {
+                            e5=blocks[r7].getL_p()+50;
+                           e6=6*blocks[r7].get_pos()+blocks[r7].getT_p();
+                           e7=blocks[r7].getL_p()+58;
+                        }
+                      }
